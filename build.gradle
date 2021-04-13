@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+apply plugin : "java"
+ext {
+    javaMainClass = "com.bekey.echemeris.app.TestApplication"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+group 'com.bekey.echemeris'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs= ["src/main/java"]
+        }
+        resources {
+            srcDirs= ["src/main/resources"]
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    implementation 'com.opencsv:opencsv:5.4'
+}
